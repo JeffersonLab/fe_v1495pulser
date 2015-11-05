@@ -1,0 +1,457 @@
+# Copyright (C) 1991-2007 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+
+
+# The default values for assignments are stored in the file
+#		HallBTrigger_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+set_location_assignment PIN_V3 -to B[17]
+set_location_assignment PIN_U2 -to C[5]
+set_location_assignment PIN_V2 -to C[11]
+set_location_assignment PIN_R4 -to C[17]
+set_location_assignment PIN_U3 -to C[22]
+set_location_assignment PIN_T3 -to E[21]
+set_location_assignment PIN_T2 -to F[15]
+set_location_assignment PIN_K5 -to LCLK
+set_location_assignment PIN_G3 -to A[0]
+set_location_assignment PIN_F2 -to A[1]
+set_location_assignment PIN_F6 -to A[3]
+set_location_assignment PIN_J5 -to A[8]
+set_location_assignment PIN_H1 -to A[11]
+set_location_assignment PIN_H2 -to A[12]
+set_location_assignment PIN_H3 -to A[13]
+set_location_assignment PIN_G5 -to A[14]
+set_location_assignment PIN_H6 -to A[18]
+set_location_assignment PIN_F5 -to A[26]
+set_location_assignment PIN_J3 -to A[29]
+set_location_assignment PIN_P5 -to B[0]
+set_location_assignment PIN_P2 -to B[1]
+set_location_assignment PIN_M4 -to B[6]
+set_location_assignment PIN_M2 -to B[7]
+set_location_assignment PIN_H5 -to B[9]
+set_location_assignment PIN_G6 -to B[10]
+set_location_assignment PIN_P3 -to B[16]
+set_location_assignment PIN_P6 -to B[20]
+set_location_assignment PIN_M7 -to B[21]
+set_location_assignment PIN_N3 -to B[22]
+set_location_assignment PIN_M1 -to B[23]
+set_location_assignment PIN_H4 -to B[24]
+set_location_assignment PIN_G4 -to B[25]
+set_location_assignment PIN_F4 -to B[26]
+set_location_assignment PIN_G2 -to B[27]
+set_location_assignment PIN_M3 -to C[4]
+set_location_assignment PIN_R6 -to C[6]
+set_location_assignment PIN_R2 -to C[7]
+set_location_assignment PIN_R1 -to C[10]
+set_location_assignment PIN_R5 -to C[14]
+set_location_assignment PIN_N4 -to C[18]
+set_location_assignment PIN_R3 -to C[23]
+set_location_assignment PIN_P4 -to C[26]
+set_location_assignment PIN_M5 -to C[31]
+set_location_assignment PIN_P1 -to E[7]
+set_location_assignment PIN_J4 -to E[14]
+set_location_assignment PIN_P7 -to E[17]
+set_location_assignment PIN_N2 -to E[22]
+set_location_assignment PIN_N1 -to E[23]
+set_location_assignment PIN_F1 -to E[24]
+set_location_assignment PIN_G1 -to E[25]
+set_location_assignment PIN_E2 -to E[26]
+set_location_assignment PIN_M6 -to F[2]
+set_location_assignment PIN_N7 -to F[10]
+set_location_assignment PIN_N6 -to F[11]
+set_location_assignment PIN_J6 -to IDD[1]
+set_location_assignment PIN_J1 -to LAD[3]
+set_location_assignment PIN_G7 -to LAD[9]
+set_location_assignment PIN_J2 -to nOED
+set_location_assignment PIN_C2 -to A[2]
+set_location_assignment PIN_C4 -to A[5]
+set_location_assignment PIN_D1 -to A[9]
+set_location_assignment PIN_C5 -to A[15]
+set_location_assignment PIN_D5 -to A[16]
+set_location_assignment PIN_F7 -to A[17]
+set_location_assignment PIN_D6 -to A[20]
+set_location_assignment PIN_E5 -to A[22]
+set_location_assignment PIN_B6 -to A[28]
+set_location_assignment PIN_B4 -to B[11]
+set_location_assignment PIN_E7 -to B[29]
+set_location_assignment PIN_B5 -to LAD[4]
+set_location_assignment PIN_B7 -to LAD[10]
+set_location_assignment PIN_A7 -to nINT
+set_location_assignment PIN_A6 -to nREADY
+set_location_assignment PIN_A4 -to WnR
+set_location_assignment PIN_D8 -to A[4]
+set_location_assignment PIN_A8 -to A[6]
+set_location_assignment PIN_C8 -to A[10]
+set_location_assignment PIN_A9 -to A[24]
+set_location_assignment PIN_F8 -to B[28]
+set_location_assignment PIN_D7 -to B[30]
+set_location_assignment PIN_C7 -to B[31]
+set_location_assignment PIN_E8 -to LAD[11]
+set_location_assignment PIN_E11 -to LAD[12]
+set_location_assignment PIN_B11 -to A[7]
+set_location_assignment PIN_C9 -to A[19]
+set_location_assignment PIN_D9 -to A[21]
+set_location_assignment PIN_A12 -to A[23]
+set_location_assignment PIN_C14 -to A[25]
+set_location_assignment PIN_B12 -to A[27]
+set_location_assignment PIN_C12 -to A[30]
+set_location_assignment PIN_A13 -to A[31]
+set_location_assignment PIN_C11 -to B[12]
+set_location_assignment PIN_D11 -to B[13]
+set_location_assignment PIN_C10 -to B[14]
+set_location_assignment PIN_D10 -to B[15]
+set_location_assignment PIN_E14 -to D[0]
+set_location_assignment PIN_E13 -to D[1]
+set_location_assignment PIN_D12 -to D[2]
+set_location_assignment PIN_F12 -to D[3]
+set_location_assignment PIN_E9 -to D[4]
+set_location_assignment PIN_C13 -to D[5]
+set_location_assignment PIN_F14 -to D[6]
+set_location_assignment PIN_D16 -to D[10]
+set_location_assignment PIN_E10 -to D[11]
+set_location_assignment PIN_E15 -to D[14]
+set_location_assignment PIN_D14 -to D[15]
+set_location_assignment PIN_A17 -to E[27]
+set_location_assignment PIN_D13 -to E[29]
+set_location_assignment PIN_C16 -to E[30]
+set_location_assignment PIN_E12 -to E[31]
+set_location_assignment PIN_E16 -to IDD[0]
+set_location_assignment PIN_C17 -to IDD[2]
+set_location_assignment PIN_B17 -to LAD[0]
+set_location_assignment PIN_B15 -to LAD[1]
+set_location_assignment PIN_B18 -to LAD[2]
+set_location_assignment PIN_A11 -to LAD[5]
+set_location_assignment PIN_B14 -to LAD[6]
+set_location_assignment PIN_B10 -to LAD[7]
+set_location_assignment PIN_B13 -to LAD[8]
+set_location_assignment PIN_B9 -to LAD[14]
+set_location_assignment PIN_B16 -to LAD[15]
+set_location_assignment PIN_A10 -to nADS
+set_location_assignment PIN_A15 -to nBLAST
+set_location_assignment PIN_F16 -to D[7]
+set_location_assignment PIN_F19 -to D[8]
+set_location_assignment PIN_H15 -to D[9]
+set_location_assignment PIN_C19 -to D[12]
+set_location_assignment PIN_C18 -to D[13]
+set_location_assignment PIN_G14 -to D[16]
+set_location_assignment PIN_G17 -to D[17]
+set_location_assignment PIN_G16 -to D[18]
+set_location_assignment PIN_F17 -to D[19]
+set_location_assignment PIN_D19 -to D[20]
+set_location_assignment PIN_E17 -to D[21]
+set_location_assignment PIN_D20 -to D[22]
+set_location_assignment PIN_F20 -to D[23]
+set_location_assignment PIN_E18 -to D[24]
+set_location_assignment PIN_E19 -to D[25]
+set_location_assignment PIN_G15 -to E[8]
+set_location_assignment PIN_G19 -to E[11]
+set_location_assignment PIN_G20 -to E[13]
+set_location_assignment PIN_L14 -to GIN[0]
+set_location_assignment PIN_F18 -to GIN[1]
+set_location_assignment PIN_P20 -to GOUT[0]
+set_location_assignment PIN_H16 -to IDE[0]
+set_location_assignment PIN_J13 -to IDE[1]
+set_location_assignment PIN_M14 -to IDE[2]
+set_location_assignment PIN_K19 -to nLEDG
+set_location_assignment PIN_D17 -to nLEDR
+set_location_assignment PIN_N14 -to nOEE
+set_location_assignment PIN_F15 -to SELD
+set_location_assignment PIN_T18 -to SELE
+set_location_assignment PIN_J16 -to D[28]
+set_location_assignment PIN_H19 -to E[9]
+set_location_assignment PIN_H18 -to E[10]
+set_location_assignment PIN_H17 -to E[12]
+set_location_assignment PIN_G18 -to E[15]
+set_location_assignment PIN_J15 -to E[28]
+set_location_assignment PIN_J14 -to B[8]
+set_location_assignment PIN_T16 -to C[9]
+set_location_assignment PIN_J18 -to D[26]
+set_location_assignment PIN_K15 -to D[27]
+set_location_assignment PIN_M15 -to D[29]
+set_location_assignment PIN_K16 -to D[30]
+set_location_assignment PIN_J17 -to D[31]
+set_location_assignment PIN_T17 -to F[4]
+set_location_assignment PIN_R16 -to F[5]
+set_location_assignment PIN_P14 -to F[7]
+set_location_assignment PIN_P18 -to F[8]
+set_location_assignment PIN_R17 -to F[9]
+set_location_assignment PIN_V18 -to F[12]
+set_location_assignment PIN_U18 -to F[13]
+set_location_assignment PIN_N15 -to F[14]
+set_location_assignment PIN_U14 -to F[16]
+set_location_assignment PIN_T15 -to F[17]
+set_location_assignment PIN_V14 -to F[18]
+set_location_assignment PIN_R14 -to F[19]
+set_location_assignment PIN_T14 -to F[24]
+set_location_assignment PIN_Y14 -to F[25]
+set_location_assignment PIN_L13 -to GOUT[1]
+set_location_assignment PIN_R18 -to IDF[1]
+set_location_assignment PIN_H14 -to LAD[13]
+set_location_assignment PIN_P17 -to nOEDDLY0
+set_location_assignment PIN_R15 -to nOEDDLY1
+set_location_assignment PIN_P15 -to nOEG
+set_location_assignment PIN_P16 -to SELG
+set_location_assignment PIN_W9 -to B[19]
+set_location_assignment PIN_U13 -to C[0]
+set_location_assignment PIN_Y9 -to C[21]
+set_location_assignment PIN_W10 -to C[25]
+set_location_assignment PIN_Y10 -to C[30]
+set_location_assignment PIN_V10 -to E[0]
+set_location_assignment PIN_Y15 -to E[1]
+set_location_assignment PIN_T6 -to E[2]
+set_location_assignment PIN_W15 -to E[3]
+set_location_assignment PIN_R11 -to E[4]
+set_location_assignment PIN_U12 -to E[5]
+set_location_assignment PIN_R13 -to E[6]
+set_location_assignment PIN_U10 -to E[18]
+set_location_assignment PIN_V13 -to E[20]
+set_location_assignment PIN_T13 -to F[0]
+set_location_assignment PIN_Y12 -to F[1]
+set_location_assignment PIN_W13 -to F[3]
+set_location_assignment PIN_T10 -to F[6]
+set_location_assignment PIN_T11 -to F[20]
+set_location_assignment PIN_U11 -to F[21]
+set_location_assignment PIN_V11 -to F[22]
+set_location_assignment PIN_R9 -to F[23]
+set_location_assignment PIN_W11 -to F[26]
+set_location_assignment PIN_Y11 -to F[27]
+set_location_assignment PIN_T9 -to F[28]
+set_location_assignment PIN_T12 -to F[29]
+set_location_assignment PIN_W12 -to IDF[0]
+set_location_assignment PIN_V12 -to IDF[2]
+set_location_assignment PIN_Y13 -to nOEF
+set_location_assignment PIN_W6 -to B[2]
+set_location_assignment PIN_Y8 -to B[3]
+set_location_assignment PIN_U8 -to B[4]
+set_location_assignment PIN_U6 -to B[5]
+set_location_assignment PIN_W8 -to B[18]
+set_location_assignment PIN_Y4 -to C[1]
+set_location_assignment PIN_V8 -to C[2]
+set_location_assignment PIN_W7 -to C[3]
+set_location_assignment PIN_R7 -to C[8]
+set_location_assignment PIN_T5 -to C[12]
+set_location_assignment PIN_U5 -to C[13]
+set_location_assignment PIN_Y7 -to C[15]
+set_location_assignment PIN_V5 -to C[16]
+set_location_assignment PIN_Y6 -to C[19]
+set_location_assignment PIN_V6 -to C[20]
+set_location_assignment PIN_U9 -to C[24]
+set_location_assignment PIN_W3 -to C[27]
+set_location_assignment PIN_U7 -to C[28]
+set_location_assignment PIN_V7 -to C[29]
+set_location_assignment PIN_V4 -to E[16]
+set_location_assignment PIN_W4 -to E[19]
+set_location_assignment PIN_V9 -to F[30]
+set_location_assignment PIN_T8 -to F[31]
+set_location_assignment PIN_W5 -to SELF
+
+# Fitter Assignments
+# ==================
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED WITH WEAK PULL-UP"
+set_global_assignment -name CYCLONE_CONFIGURATION_SCHEME "PASSIVE SERIAL"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+
+set_global_assignment -name FAMILY Cyclone
+set_global_assignment -name DEVICE EP1C20F400C6
+set_global_assignment -name TOP_LEVEL_ENTITY V1495Pulser
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "7.2 SP2"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:20:29  FEBRUARY 27, 2008"
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name EDA_SIMULATION_TOOL "Custom VHDL"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_palace
+set_global_assignment -name CYCLONE_OPTIMIZATION_TECHNIQUE AREA
+set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 400
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 6
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_ASYNCHRONOUS_SIGNAL_PIPELINING OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_RETIMING OFF
+set_global_assignment -name DO_MIN_ANALYSIS ON
+set_global_assignment -name FMAX_REQUIREMENT "40 MHz" -section_id LCLK_40
+set_global_assignment -name ENABLE_SIGNALTAP OFF
+set_global_assignment -name USE_SIGNALTAP_FILE stp1.stp
+set_global_assignment -name REMOVE_DUPLICATE_REGISTERS OFF
+set_global_assignment -name ADV_NETLIST_OPT_SYNTH_WYSIWYG_REMAP OFF
+set_global_assignment -name ADV_NETLIST_OPT_SYNTH_GATE_RETIME OFF
+set_global_assignment -name ADV_NETLIST_OPT_RETIME_CORE_AND_IO OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_EFFORT NORMAL
+set_global_assignment -name GENERATE_RBF_FILE ON
+set_global_assignment -name SEED 26
+set_global_assignment -name PLACEMENT_EFFORT_MULTIPLIER 1
+set_global_assignment -name FITTER_EFFORT "AUTO FIT"
+set_global_assignment -name ROUTER_TIMING_OPTIMIZATION_LEVEL NORMAL
+set_global_assignment -name AUTO_PACKED_REGISTERS_CYCLONE NORMAL
+set_global_assignment -name STATE_MACHINE_PROCESSING AUTO
+set_global_assignment -name REMOVE_REDUNDANT_LOGIC_CELLS ON
+set_global_assignment -name OPTIMIZE_HOLD_TIMING "ALL PATHS"
+set_location_assignment PIN_A14 -to nLBRES
+set_global_assignment -name ROUTER_LCELL_INSERTION_AND_LOGIC_DUPLICATION ON
+set_global_assignment -name PRE_MAPPING_RESYNTHESIS ON
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to A
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to B
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to C
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to D
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to E
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to F
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GIN
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GOUT
+set_global_assignment -name MUX_RESTRUCTURE ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC_FOR_AREA OFF
+set_global_assignment -name SAFE_STATE_MACHINE ON
+set_global_assignment -name AUTO_RAM_RECOGNITION OFF
+set_global_assignment -name AUTO_ROM_RECOGNITION OFF
+set_global_assignment -name ROUTER_REGISTER_DUPLICATION OFF
+set_global_assignment -name AUTO_RAM_BLOCK_BALANCING OFF
+set_global_assignment -name AUTO_SHIFT_REGISTER_RECOGNITION OFF
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_COLOR 2147039 -section_id Top
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to E
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to LAD
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to LAD
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to LAD
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to "UserBus32bit:UserBus32bit0|nREADY"
+set_location_assignment PIN_H7 -to SPARE[11]
+set_location_assignment PIN_J7 -to SPARE[10]
+set_location_assignment PIN_N5 -to SPARE[9]
+set_location_assignment PIN_U4 -to SPARE[8]
+set_location_assignment PIN_D3 -to SPARE[7]
+set_location_assignment PIN_D2 -to SPARE[6]
+set_location_assignment PIN_N20 -to SPARE[5]
+set_location_assignment PIN_P19 -to SPARE[4]
+set_location_assignment PIN_V19 -to SPARE[3]
+set_location_assignment PIN_U20 -to SPARE[2]
+set_location_assignment PIN_W18 -to SPARE[1]
+set_location_assignment PIN_U19 -to SPARE[0]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[0]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[31]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[30]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[29]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[28]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[27]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[26]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[25]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[24]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[23]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[22]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[21]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[20]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[19]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[18]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[17]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[16]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[15]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[14]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[13]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[12]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[11]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[10]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[9]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[8]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[7]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[6]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[5]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[4]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[3]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[2]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to D[1]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[31]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[30]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[29]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[28]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[27]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[26]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[25]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[24]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[23]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[22]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[21]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[20]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[19]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[18]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[17]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[16]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[15]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[14]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[13]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[12]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[11]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[10]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[9]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[8]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[7]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[6]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[5]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[4]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[3]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[2]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[1]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to E[0]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[31]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[30]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[29]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[28]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[27]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[26]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[25]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[24]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[23]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[22]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[21]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[20]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[19]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[18]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[17]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[16]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[15]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[14]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[13]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[12]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[11]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[10]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[9]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[8]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[7]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[6]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[5]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[4]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[3]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[2]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[1]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to F[0]
+set_global_assignment -name MISC_FILE "C:/Projects/Pulser_V1495/Firmware/AlteraProject/V1495Pulser.dpf"
+set_global_assignment -name OPTIMIZE_POWER_DURING_SYNTHESIS OFF
+set_global_assignment -name PARALLEL_SYNTHESIS ON
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to SPARE
+set_instance_assignment -name CLOCK_SETTINGS LCLK_40 -to LCLK
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+
+set_global_assignment -name SDC_FILE ../src/V1495Pulser.sdc
+set_global_assignment -name VHDL_FILE ../src/Dpram_4k_1b.vhd
+set_global_assignment -name VHDL_FILE ../src/PLLBlock.vhd
+set_global_assignment -name VHDL_FILE ../src/UserBus32bit.vhd
+set_global_assignment -name VHDL_FILE ../src/Pulser.vhd
+set_global_assignment -name VHDL_FILE ../src/V1495Pulser.vhd
+set_global_assignment -name VHDL_FILE ../src/MasterOr.vhd
+set_global_assignment -name VHDL_FILE ../src/DelayLine_4k.vhd
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
