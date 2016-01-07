@@ -160,7 +160,10 @@ architecture Synthesis of V1495Pulser is
 	constant A_PULSER_GIN_MASK_L		: std_logic_vector(15 downto 0) := x"102C";
 	constant A_PULSER_START_STOP		: std_logic_vector(15 downto 0) := x"1030";
 	constant A_NIMTTL						: std_logic_vector(15 downto 0) := x"1034";
-	
+	constant A_PULSER_MOR_MASK_H		: std_logic_vector(15 downto 0) := x"1038";
+	constant A_PULSER_MOR_MASK_L		: std_logic_vector(15 downto 0) := x"103C";
+
+
 	signal USER_DOUT_MUX					: slv32_array(57 downto 0);
 
 	signal JUMPER							: std_logic_vector(5 downto 0);
@@ -176,6 +179,7 @@ architecture Synthesis of V1495Pulser is
 	signal PULSER_START_LCLK			: std_logic;
 	signal PULSER_STOP_LCLK				: std_logic;
 	signal PULSER_OR						: std_logic_vector(3 downto 0);
+	signal PULSER_MOR_MASK				: std_logic_vector(PULSER_NUM-1 downto 0);
 
 	signal PULSER_START_PLLCLK			: std_logic_vector(3 downto 0);
 	signal PULSER_STOP_PLLCLK			: std_logic_vector(3 downto 0);
@@ -314,16 +318,16 @@ begin
 
 	process(PULSER_OUTPUT, PULSER_OUTPUT_Q, GIN_OR, PULSER_GIN_MASK)
 	begin
-		GOUT(1) <= (PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-3)(55) or (GIN_OR and PULSER_GIN_MASK(55)));
+		GOUT(1) <= (PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-3)(55) or (GIN_OR and PULSER_GIN_MASK(55))) or (MOR_OUT and PULSER_MOR_MASK(55));
 		
 		for I in 0 to 30 loop
-			C(I) <= PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-1)(I) or (GIN_OR and PULSER_GIN_MASK(I));
+			C(I) <= PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-1)(I) or (GIN_OR and PULSER_GIN_MASK(I)) or (MOR_OUT and PULSER_MOR_MASK(I));
 		end loop;
 		
 		for I in 0 to 7 loop
-			D(NIM_IO_MAP(I)) <= (PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-1)(31+ 0+I) or (GIN_OR and PULSER_GIN_MASK(31+ 0+I)));
-			E(NIM_IO_MAP(I)) <= (PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-1)(31+ 8+I) or (GIN_OR and PULSER_GIN_MASK(31+ 8+I)));
-			F(NIM_IO_MAP(I)) <= (PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-1)(31+16+I) or (GIN_OR and PULSER_GIN_MASK(31+16+I)));
+			D(NIM_IO_MAP(I)) <= (PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-1)(31+ 0+I) or (GIN_OR and PULSER_GIN_MASK(31+ 0+I))) or (MOR_OUT and PULSER_MOR_MASK(31+ 0+I));
+			E(NIM_IO_MAP(I)) <= (PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-1)(31+ 8+I) or (GIN_OR and PULSER_GIN_MASK(31+ 8+I))) or (MOR_OUT and PULSER_MOR_MASK(31+ 8+I));
+			F(NIM_IO_MAP(I)) <= (PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-1)(31+16+I) or (GIN_OR and PULSER_GIN_MASK(31+16+I))) or (MOR_OUT and PULSER_MOR_MASK(31+16+I));
 		end loop;
 	end process;
 
@@ -369,6 +373,7 @@ begin
 			PULSER_START_MASK <= (others=>'1');
 			PULSER_STOP_MASK <= (others=>'1');
 			PULSER_GIN_MASK <= (others=>'0');
+			PULSER_MOR_MASK <= (others=>'0');
 			NIMTTL_SEL <= "011";
 		elsif rising_edge(LCLK) then
 			PULSER_START_LCLK <= '0';
@@ -384,6 +389,8 @@ begin
 					when A_PULSER_GIN_MASK_L	=> PULSER_GIN_MASK(31 downto 0) <= USER_DIN;
 					when A_PULSER_START_STOP	=> PULSER_START_LCLK <= USER_DIN(0);
 					                              PULSER_STOP_LCLK <= not USER_DIN(0);
+					when A_PULSER_MOR_MASK_H	=> PULSER_MOR_MASK(55 downto 32) <= USER_DIN(23 downto 0);
+					when A_PULSER_MOR_MASK_L	=> PULSER_MOR_MASK(31 downto 0) <= USER_DIN;
 					when A_NIMTTL					=> NIMTTL_SEL <= USER_DIN(2 downto 0);
 					when others 					=> null;
 				end case;
@@ -396,7 +403,7 @@ begin
 		if USER_RD = '1' then
 			case USER_ADDR is
 				when A_PULSER_ID				=> USER_DOUT_MUX(0) <= x"50554C53";
-				when A_FIRMWARE_REV			=> USER_DOUT_MUX(0) <= x"00010004";
+				when A_FIRMWARE_REV			=> USER_DOUT_MUX(0) <= x"00010005";
 				when A_BOARDID					=> USER_DOUT_MUX(0) <= x"00000" & "0"&IDF & "0"&IDE & "0"&IDD;
 				when A_JUMPERS					=> USER_DOUT_MUX(0) <= x"000000" & "00" & JUMPER;
 				when A_PULSER_STATUS_H		=> USER_DOUT_MUX(0) <= "00000000" & PULSER_STATUS(55 downto 32);
@@ -407,6 +414,8 @@ begin
 				when A_PULSER_STOP_MASK_L	=> USER_DOUT_MUX(0) <= PULSER_STOP_MASK(31 downto 0);
 				when A_PULSER_GIN_MASK_H	=> USER_DOUT_MUX(0) <= "00000000" & PULSER_GIN_MASK(55 downto 32);
 				when A_PULSER_GIN_MASK_L	=> USER_DOUT_MUX(0) <= PULSER_GIN_MASK(31 downto 0);
+				when A_PULSER_MOR_MASK_H	=> USER_DOUT_MUX(0) <= "00000000" & PULSER_MOR_MASK(55 downto 32);
+				when A_PULSER_MOR_MASK_L	=> USER_DOUT_MUX(0) <= PULSER_MOR_MASK(31 downto 0);
 				when A_NIMTTL					=> USER_DOUT_MUX(0) <= x"0000000" & '0' & NIMTTL_SEL(2 downto 0);
 				when others 					=> USER_DOUT_MUX(0) <= x"00000000";
 			end case;
