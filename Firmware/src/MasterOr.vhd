@@ -5,7 +5,8 @@ use ieee.std_logic_unsigned.all;
 
 entity MasterOr is
 	generic(
-		BASE_ADDR		: std_logic_vector(15 downto 0)
+		BASE_ADDR		: std_logic_vector(15 downto 0);
+		DELAY_DEFAULT	: std_logic_vector(11 downto 0)
 	);
 	port(
 		RESET		: in std_logic;
@@ -42,7 +43,7 @@ architecture Synthesis of MasterOr is
 	constant A_DELAY			: std_logic_vector(15 downto 0) := x"0000" + BASE_ADDR;
 	constant A_HIGH_CYCLES		: std_logic_vector(15 downto 0) := x"0004" + BASE_ADDR;
 	
-	constant DFT_DELAY			: std_logic_vector(11 downto 0) := conv_std_logic_vector(0, 12);
+	constant DFT_DELAY			: std_logic_vector(11 downto 0) := DELAY_DEFAULT;
 	constant DFT_HIGH_CYCLES	: std_logic_vector(7 downto 0) := conv_std_logic_vector(10, 8);
 	
 	signal DELAY				: std_logic_vector(11 downto 0);

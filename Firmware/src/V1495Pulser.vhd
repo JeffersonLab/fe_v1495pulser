@@ -105,7 +105,8 @@ architecture Synthesis of V1495Pulser is
 
 	component MasterOr is
 		generic(
-			BASE_ADDR	: std_logic_vector(15 downto 0)
+			BASE_ADDR		: std_logic_vector(15 downto 0);
+			DELAY_DEFAULT	: std_logic_vector(11 downto 0)
 		);
 		port(
 			RESET			: in std_logic;
@@ -160,11 +161,9 @@ architecture Synthesis of V1495Pulser is
 	constant A_PULSER_GIN_MASK_L		: std_logic_vector(15 downto 0) := x"102C";
 	constant A_PULSER_START_STOP		: std_logic_vector(15 downto 0) := x"1030";
 	constant A_NIMTTL						: std_logic_vector(15 downto 0) := x"1034";
-	constant A_PULSER_MOR_MASK_H		: std_logic_vector(15 downto 0) := x"1038";
-	constant A_PULSER_MOR_MASK_L		: std_logic_vector(15 downto 0) := x"103C";
 
 
-	signal USER_DOUT_MUX					: slv32_array(57 downto 0);
+	signal USER_DOUT_MUX					: slv32_array(58 downto 0);
 
 	signal JUMPER							: std_logic_vector(5 downto 0);
 
@@ -200,6 +199,7 @@ architecture Synthesis of V1495Pulser is
 	
 	signal MOR_IN							: std_logic;
 	signal MOR_OUT							: std_logic;
+	signal MOR_OUT_F						: std_logic;
 	
 	signal GIN_OR							: std_logic;
 
@@ -252,7 +252,7 @@ begin
 				LCLK			=> LCLK,
 				ADDR			=> USER_ADDR,
 				DIN			=> USER_DIN,
-				DOUT			=> USER_DOUT_MUX(I+2),
+				DOUT			=> USER_DOUT_MUX(I+3),
 				RD				=> USER_RD,
 				WR				=> USER_WR,
 				CLK			=> PLLCLK,
@@ -268,7 +268,8 @@ begin
 	-------------------------
 	MasterOr_inst: MasterOr
 		generic map(
-			BASE_ADDR		=> x"1100"
+			BASE_ADDR		=> x"1100",
+			DELAY_DEFAULT	=> x"000"
 		)
 		port map(
 			RESET		=> SYS_RESET,
@@ -281,6 +282,24 @@ begin
 			CLK		=> PLLCLK,
 			INPUT		=> MOR_IN,
 			OUTPUT	=> MOR_OUT
+		);
+
+	MasterOr_inst1: MasterOr
+		generic map(
+			BASE_ADDR		=> x"1200",
+			DELAY_DEFAULT	=> x"0C8"
+		)
+		port map(
+			RESET		=> SYS_RESET,
+			LCLK		=> LCLK,
+			ADDR		=> USER_ADDR,
+			DIN		=> USER_DIN,
+			DOUT		=> USER_DOUT_MUX(2),
+			RD			=> USER_RD,
+			WR			=> USER_WR,
+			CLK		=> PLLCLK,
+			INPUT		=> MOR_IN,
+			OUTPUT	=> MOR_OUT_F
 		);
 	
 	-------------------------
@@ -318,17 +337,27 @@ begin
 
 	process(PULSER_OUTPUT, PULSER_OUTPUT_Q, GIN_OR, PULSER_GIN_MASK)
 	begin
-		GOUT(1) <= (PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-3)(55) or (GIN_OR and PULSER_GIN_MASK(55))) or (MOR_OUT and PULSER_MOR_MASK(55));
+		GOUT(1) <= (PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-3)(55) or (GIN_OR and PULSER_GIN_MASK(55)));
 		
 		for I in 0 to 30 loop
-			C(I) <= PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-1)(I) or (GIN_OR and PULSER_GIN_MASK(I)) or (MOR_OUT and PULSER_MOR_MASK(I));
+			C(I) <= PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-1)(I) or (GIN_OR and PULSER_GIN_MASK(I));
 		end loop;
 		
 		for I in 0 to 7 loop
-			D(NIM_IO_MAP(I)) <= (PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-1)(31+ 0+I) or (GIN_OR and PULSER_GIN_MASK(31+ 0+I))) or (MOR_OUT and PULSER_MOR_MASK(31+ 0+I));
-			E(NIM_IO_MAP(I)) <= (PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-1)(31+ 8+I) or (GIN_OR and PULSER_GIN_MASK(31+ 8+I))) or (MOR_OUT and PULSER_MOR_MASK(31+ 8+I));
-			F(NIM_IO_MAP(I)) <= (PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-1)(31+16+I) or (GIN_OR and PULSER_GIN_MASK(31+16+I))) or (MOR_OUT and PULSER_MOR_MASK(31+16+I));
+			D(NIM_IO_MAP(I)) <= (PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-1)(31+ 0+I) or (GIN_OR and PULSER_GIN_MASK(31+ 0+I)));
+			E(NIM_IO_MAP(I)) <= (PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-1)(31+ 8+I) or (GIN_OR and PULSER_GIN_MASK(31+ 8+I)));
 		end loop;
+
+		for I in 0 to 6 loop
+			F(NIM_IO_MAP(I)) <= (PULSER_OUTPUT_Q(PULSER_OUTPUT_Q'length-1)(31+16+I) or (GIN_OR and PULSER_GIN_MASK(31+16+I)));
+		end loop;
+	end process;
+
+	process(PLLCLK)
+	begin
+		if rising_edge(PLLCLK) then			
+			F(NIM_IO_MAP(7)) <= MOR_OUT_F;
+		end if;
 	end process;
 
 	-------------------------
@@ -373,7 +402,6 @@ begin
 			PULSER_START_MASK <= (others=>'1');
 			PULSER_STOP_MASK <= (others=>'1');
 			PULSER_GIN_MASK <= (others=>'0');
-			PULSER_MOR_MASK <= (others=>'0');
 			NIMTTL_SEL <= "011";
 		elsif rising_edge(LCLK) then
 			PULSER_START_LCLK <= '0';
@@ -389,8 +417,6 @@ begin
 					when A_PULSER_GIN_MASK_L	=> PULSER_GIN_MASK(31 downto 0) <= USER_DIN;
 					when A_PULSER_START_STOP	=> PULSER_START_LCLK <= USER_DIN(0);
 					                              PULSER_STOP_LCLK <= not USER_DIN(0);
-					when A_PULSER_MOR_MASK_H	=> PULSER_MOR_MASK(55 downto 32) <= USER_DIN(23 downto 0);
-					when A_PULSER_MOR_MASK_L	=> PULSER_MOR_MASK(31 downto 0) <= USER_DIN;
 					when A_NIMTTL					=> NIMTTL_SEL <= USER_DIN(2 downto 0);
 					when others 					=> null;
 				end case;
@@ -414,8 +440,6 @@ begin
 				when A_PULSER_STOP_MASK_L	=> USER_DOUT_MUX(0) <= PULSER_STOP_MASK(31 downto 0);
 				when A_PULSER_GIN_MASK_H	=> USER_DOUT_MUX(0) <= "00000000" & PULSER_GIN_MASK(55 downto 32);
 				when A_PULSER_GIN_MASK_L	=> USER_DOUT_MUX(0) <= PULSER_GIN_MASK(31 downto 0);
-				when A_PULSER_MOR_MASK_H	=> USER_DOUT_MUX(0) <= "00000000" & PULSER_MOR_MASK(55 downto 32);
-				when A_PULSER_MOR_MASK_L	=> USER_DOUT_MUX(0) <= PULSER_MOR_MASK(31 downto 0);
 				when A_NIMTTL					=> USER_DOUT_MUX(0) <= x"0000000" & '0' & NIMTTL_SEL(2 downto 0);
 				when others 					=> USER_DOUT_MUX(0) <= x"00000000";
 			end case;
